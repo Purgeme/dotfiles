@@ -1,0 +1,5 @@
+set recolor true
+set default-bg "#000000" # rgba(40,40,40,0.8)
+#set recolor-lightcolor "#ffffff" # rgba(40,40,40,0)
+set recolor-darkcolor "#ebdbb2" # rgba(250,250,250,1)
+set adjust-open "width"

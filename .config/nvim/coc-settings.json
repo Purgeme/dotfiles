@@ -1,0 +1,11 @@
+{
+	"python.jediEnabled": false,
+	"coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "python", "javascript", "sh"],
+    "languageserver":{
+        "godot": {
+            "filetypes": ["gd", "gdscript3"],
+            "host": "127.0.0.1",
+            "port": 6008
+        }
+    }
+}
