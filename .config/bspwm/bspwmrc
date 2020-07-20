@@ -17,18 +17,18 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a spotify state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Display state=floating
 bspc rule -a jetbrains-studio state=floating
 bspc rule -a Unity state=floating
 bspc rule -a matplotlib state=floating
 bspc rule -a Spotify state=floating
+bspc rule -a spotify state=floating
 
 # Autostart
 sh $HOME/.config/polybar/launch.sh &
 wal --backend wal -i ~/wallpapers/wallpaper14.jpg &
-[[ ! $(pidof -x picom) ]] && picom &
+[[ ! $(pidof -x picom) ]] && picom --config $HOME/.config/picom.conf &
 synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1 CircularScrolling=1 SingleTapTimeout=210 PalmDetect=1 PalmMinz=150 PalmMinWidth=5 &
 xbindkeys1
 #clipmenud

@@ -2,10 +2,15 @@
 # wm independent hotkeys
 #
 
+# disable blur
+super + ctrl + b
+	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom_noblur.conf 
+# enable blur
+super + ctrl + shift + b
+	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom.conf
 
-# scratchpad
-# original post https://www.reddit.com/r/bspwm/comments/hojore/scratchpad_with_2_sxhkd_shortcuts/
-# hide window
+
+# scratchpad: original post https://www.reddit.com/r/bspwm/comments/hojore/scratchpad_with_2_sxhkd_shortcuts/ (hide window)
 super + v
 	bspc node -g hidden
 # unhide window
@@ -33,7 +38,7 @@ super + slash
 
 # File manager - ranger
 super + r
-	kitty -e ranger
+	kitty -e "/bin/fish" -c ranger
 
 # Send to desktop and switch to it
 super + shift + {1-9,0}
