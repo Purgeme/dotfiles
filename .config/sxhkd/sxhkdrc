@@ -38,7 +38,7 @@ super + slash
 
 # File manager - ranger
 super + r
-	kitty -e "/bin/fish" -c ranger
+	kitty -e ranger
 
 # Send to desktop and switch to it
 super + shift + {1-9,0}

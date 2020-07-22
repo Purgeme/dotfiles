@@ -24,7 +24,13 @@ fish_vi_key_bindings
 # add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# add GOPATH to PATH
+export PATH="$HOME/go/bin:$PATH"
+
 # specify nvim as global editor
 export EDITOR=nvim;
+
+# add custom scripts to path
+export PATH="$HOME/.custom_scripts/:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
