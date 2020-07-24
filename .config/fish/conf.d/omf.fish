@@ -33,4 +33,7 @@ export EDITOR=nvim;
 # add custom scripts to path
 export PATH="$HOME/.custom_scripts/:$PATH"
 
+# add flutter to path
+export PATH="$HOME/flutter/bin/:$PATH"
+
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

@@ -107,7 +107,7 @@ super + alt + {t,shift + t}
 	bspc node -t {tiled,pseudo_tiled}
 
 # Set node flags
-super + ctrl + {m,l,s,p}
+super + ctrl + {m,x,s,p}
 	bspc node -g {marked,locked,sticky,private}
 
 # Sxhkd shortcut helper

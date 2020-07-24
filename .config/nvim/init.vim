@@ -22,6 +22,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " C/C++ Support
 Plug 'WolfgangMehner/c-support'
 
+" Dart support for Flutter
+Plug 'dart-lang/dart-vim-plugin'
+" Plug 'natebosch/vim-lsc'
+" Plug 'natebosch/vim-lsc-dart'
+
 call plug#end()
 
 " Shortcut for NerdTree
