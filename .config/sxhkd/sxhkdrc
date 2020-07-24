@@ -1,202 +1,202 @@
-#
-# wm independent hotkeys
-#
+##############
+#Applications#
+##############
 
-# disable blur
-super + ctrl + b
-	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom_noblur.conf 
-# enable blur
-super + ctrl + shift + b
-	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom.conf
+# Godot
+super + g
+	godot
 
+# Lutris
+super + ctrl + g
+	lutris
 
-# scratchpad: original post https://www.reddit.com/r/bspwm/comments/hojore/scratchpad_with_2_sxhkd_shortcuts/ (hide window)
-super + v
-	bspc node -g hidden
-# unhide window
-super + shift + v
-	$HOME/.custom_scripts/scratchpad_unhide
+# Qutebrowser
+super + w
+	qutebrowser
 
-##########################
-######PROGRAMS############
-##########################
+# Kitty terminal
+super + Return
+	kitty
 
-# Show clipmenu
-# original post on https://my-take-on.tech/2020/07/03/some-tricks-for-sxhkd-and-bspwm/
-alt + v
-    CM_LAUNCHER=rofi clipmenu \
-        -location 1 \
-        -m -3 \
-        -no-show-icons \
-        -theme-str '* \{ font: 10px; \}' \
-        -theme-str 'listview \{ spacing: 0; \}' \
-        -theme-str 'window \{ width: 20em; \}'
+# Kitty terminal
+super + x
+	kitty
 
-# sxhkd help menu (rofi)
-super + slash
-	$HOME/.custom_scripts/sxhkd-help 
+# Microsoft teams
+super + t
+	teams %U
 
-# File manager - ranger
-super + r
+# Spotify
+super + m
+	spotify
+
+# File manager (ranger)
+super + f
 	kitty -e ranger
 
-# Send to desktop and switch to it
-super + shift + {1-9,0}
-    bspc node -d '^{1-9,10}' --follow
+#################
+#Settings Change#
+#################
 
-# Rotate tree of windows
-super + shift + {d,a}
-    bspc node @/ -C {forward,backward}
+# Disable Touchpad
+super + shift + ;
+	bash -c "synclient TouchpadOff=1"
 
-# Move a window to preselected position
-super + shift + m
-	bspc node -n last.!automatic
+# Enable Touchpad
+super + ;
+	bash -c "synclient TouchpadOff=0"
 
-# lock
-super + shift + t
-    exec ~/lock.sh
+# Disable blur
+super + alt + shift + b
+	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom_noblur.conf
 
-# dmenu
-super + control + space
-    dmenu_run
+# Enable blur
+super + alt + b
+	pkill picom && sleep 0.2 &&  picom --config $HOME/.config/picom.conf
 
-# brightness control
+# Control backlight
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
-    xbacklight -{inc 5%,dec 5%}
+	xbacklight -{inc 5%,dec 5%}
 
-# volume up, down
+# Control volume
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-    pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+	pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
 
-# volume mute
+# Mute Speaker
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# mic mute
+# Mute mic
 XF86AudioMicMute
-    pacrtl set-source-mute @DEFAULT_SOURCE@ toggle
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-# music play / pause
+# Play/Pause Music
 XF86AudioPlay
-    playerctl play-pause
+	playerctl play-pause
 
-# music next and previous
+# Change music
 {XF86AudioNext, XF86AudioPrev}
-    playerctl {next,previous}
+	playerctl {next,previous}
 
-# terminal emulator
-super + Return
-    kitty
+#####################
+#Base window manager#
+#####################
 
-# program launcher and window mover ? ¯\(°_o)/¯
+# Rofi app launcher
 super + {@space,alt + @space}
 	rofi -show {drun,window}
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+# Toggle floating and tiling
+super + shift + ctrl + space
+	bspc node -t tiled || bspc node -t floating
 
-# Toggle floating
-super + shift + space
-    bspc node -t tiled || bspc node -t floating
+# Toggle floating and fullscreen
+super + alt + ctrl + f
+	bspc node -t fullscreen || bspc node -t floating
 
-# Sticky ( follow around workspaces )
-super + s
+# Toggle tiling and fullscreen
+super + alt + f
+	bspc node -t tiled || bspc node -t fullscreen
+
+# Toggle sticky
+super + alt + s
 	bspc node -g sticky
 
-#
-# bspwm hotkeys
-#
+# Set window state
+super + alt + {t,shift + t}
+	bspc node -t {tiled,pseudo_tiled}
 
-# quit/restart bspwm
+# Set node flags
+super + ctrl + {m,l,s,p}
+	bspc node -g {marked,locked,sticky,private}
+
+# Sxhkd shortcut helper
+super + slash
+	$HOME/.custom_scripts/sxhkd-help
+
+# Quit/Forc Quit application
+super + {_,shift +}q
+	bspc node -{c,k}
+
+# Log out / Restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
-super + {_,shift + }w
-	bspc node -{c,k}
+# Reload sxhkd config
+super + Escape
+	pkill -USR1 -x sxhkd
 
-# alternate between the tiled and monocle layout
-super + m
+# Lock the screen
+super + shift + l
+	$HOME/.custom_scripts/lock
+
+# Move window TO scratchpad
+super + v
+	bspc node -g hidden
+
+# Move window FROM scratchpad
+super + shift + v
+	$HOME/.custom_scripts/scratchpad_unhide
+
+# Send to desktop and shift to it
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow
+
+# Send to desktop
+super + shift + alt + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
+# Focus desktop
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+# Rotate tree of windows
+super + shift + {d,a}
+	bspc node @/ -C {forward,backward}
+
+# Move a window to a pre-selected position
+super + shift + m
+	bspc node -n last.!automatic
+
+# Change layout
+super + shift + ,
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# Swap current node and the biggest one current desktop
+super + shift + g
+	bspc node @/ -s biggest
 
-# swap the current node and the biggest node
-super + g
-	bspc node -s biggest
-
-#
-# state/flags
-#
-
-# Alternate between tiled and fullscreen
-super + f
-	bspc node -t fullscreen || bspc node -t tiled
-
-# set the window state
-super + {t,shift + t,}
-	bspc node -t {tiled,pseudo_tiled}
-
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
-
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
-
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
+# Focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+    bspc {node,desktop} -f last
 
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+# Focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# Focus the node for the given path jump
+super + {p,b,comma,period}
+    bspc node -f @{parent,brother,first,second}
 
-#
-# preselect
-#
+# Focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
 
-# preselect the direction
+# Preselect the direction
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+    bspc node -p {west,south,north,east}
 
-# preselect the ratio
+# Preselect the ratio
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+    bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
+# Cancel the preselection for the focused node
 super + ctrl + space
-	bspc node -p cancel
+    bspc node -p cancel
 
-# cancel the preselection for the focused desktop
+# Cancel the preselection for the focused desktop
 super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
@@ -204,34 +204,25 @@ super + ctrl + shift + space
 
 # expand or shrink a window to the right
 super + alt + l
-	bspc node -z right 20 0 || bspc node -z left 20 0
+    bspc node -z right 20 0 || bspc node -z left 20 0
 
 # expand or shrink a window to the left
 super + alt + h
-	bspc node -z left -20 0 || bspc node -z right -20 0
+    bspc node -z left -20 0 || bspc node -z right -20 0
 
 # expand or shrink a window to the top
 super + alt + k
-	bspc node -z top 0 -20 || bspc node -z bottom 0 -20
+    bspc node -z top 0 -20 || bspc node -z bottom 0 -20
 
 # expand or shrink a window to the bottom
 super + alt + j
-	bspc node -z bottom 0 20 || bspc node -z top 0 20
+    bspc node -z bottom 0 20 || bspc node -z top 0 20
+
+# shrink a window ( added for issues with floating windows )
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0} 
-
-
-##########################
-#Extra Code for reference#
-##########################
-
-# expand a window by moving one of its side outward
-#super + alt + {h,j,k,l}
-#	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-#super + alt + shift + {h,j,k,l}
-#	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -v {-20 0,0 20,0 -20,20 0} 
 
