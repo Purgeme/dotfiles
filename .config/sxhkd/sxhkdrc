@@ -2,6 +2,14 @@
 #Applications#
 ##############
 
+# Glances for hardware
+super + c
+	kitty -e fish -c glances
+
+# Htop for processe
+super + z
+	kitty -e fish -c htop
+
 # Godot
 super + g
 	godot
@@ -31,7 +39,7 @@ super + m
 	spotify
 
 # File manager (ranger)
-super + f
+super + r
 	kitty -e ranger
 
 #################
@@ -91,11 +99,11 @@ super + shift + ctrl + space
 	bspc node -t tiled || bspc node -t floating
 
 # Toggle floating and fullscreen
-super + alt + ctrl + f
+super + ctrl + f
 	bspc node -t fullscreen || bspc node -t floating
 
 # Toggle tiling and fullscreen
-super + alt + f
+super + f
 	bspc node -t tiled || bspc node -t fullscreen
 
 # Toggle sticky
@@ -193,10 +201,6 @@ super + ctrl + {1-9}
 # Cancel the preselection for the focused node
 super + ctrl + space
     bspc node -p cancel
-
-# Cancel the preselection for the focused desktop
-super + ctrl + shift + space
-    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize

@@ -36,4 +36,8 @@ export PATH="$HOME/.custom_scripts/:$PATH"
 # add flutter to path
 export PATH="$HOME/flutter/bin/:$PATH"
 
+# fix blank windows on android studio
+export _JAVA_AWT_WM_NONREPARENTING=1
+export PATH="$HOME/.local/android-studio/bin/:$PATH"
+
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
