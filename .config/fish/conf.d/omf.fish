@@ -41,3 +41,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$HOME/.local/android-studio/bin/:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias nextcld='/home/azamath/Downloads/Nextcloud-2.6.5-x86_64.AppImage'

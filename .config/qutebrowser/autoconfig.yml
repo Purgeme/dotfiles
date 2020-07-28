@@ -83,6 +83,8 @@ settings:
   content.media_capture:
     https://meet.google.com: true
   content.notifications:
+    https://courses.learncodeonline.in: false
+    https://fgoogle.westindia.cloudapp.azure.com: false
     https://installwebsecurerr.com: false
     https://www.reddit.com: false
     https://www.techadvisor.co.uk: false
@@ -91,7 +93,7 @@ settings:
     https://calendar.google.com?cid=%25s: false
     https://mail.google.com?extsrc=mailto&url=%25s: false
   content.webgl:
-    global: true
+    global: false
   downloads.location.directory:
     global: /home/azamath/Downloads/
   downloads.remove_finished:

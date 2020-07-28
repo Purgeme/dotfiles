@@ -42,7 +42,7 @@ modules-center =
 modules-right = separator memory separator cpu separator xbacklight separator volume separator wlan separator battery separator date separator
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-scroll = default
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -95,6 +95,7 @@ type = internal/battery
 battery = BAT0
 adapter = ADP0
 full-at = 98
+click-left = rofi -show drun
 ;format-critical = <ramp-capacity> <label-disharging>
 ;format-critical-foreground = #ffb52a
 
@@ -171,7 +172,7 @@ type = internal/pulseaudio
 
 format-volume =  <label-volume> <bar-volume>
 format-muted =  Muted
-label-volume =  %percentage%
+label-volume = "%{A1: kitty -e fish -c pulsemixer &:} %percentage%%{A}"
 label-volume-foreground = ${colors.foreground-alt}
 
 bar-volume-width = 10
@@ -205,8 +206,8 @@ format-padding = 0
 [module/title]
 type = internal/xwindow
 format = <label>
-label = %title%
-label-maxlen = 20
+label = "%{A3: rofi -show drun:} %title% %{A}"
+label-maxlen = 45 ;This would normally be 20 but to accomodate for the click area, this has to be 45
 
 [module/notifications]
 type = custom/text
