@@ -40,7 +40,7 @@ super + m
 
 # File manager (ranger)
 super + r
-	kitty -e ranger
+	kitty -e fish -c ranger
 
 #################
 #Settings Change#
