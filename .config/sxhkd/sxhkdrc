@@ -2,6 +2,10 @@
 #Applications#
 ##############
 
+# rofimoji
+super + e
+	rofimoji
+
 # Glances for hardware
 super + c
 	kitty -e fish -c glances
@@ -40,7 +44,7 @@ super + m
 
 # File manager (ranger)
 super + r
-	kitty -e fish -c ranger
+	kitty -e ranger
 
 #################
 #Settings Change#
@@ -92,7 +96,7 @@ XF86AudioPlay
 
 # Rofi app launcher
 super + {@space,alt + @space}
-	rofi -show {drun,window}
+	rofi -show {drun,window} -show-icons
 
 # Toggle floating and tiling
 super + shift + ctrl + space

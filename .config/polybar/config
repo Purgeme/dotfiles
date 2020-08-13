@@ -141,7 +141,9 @@ type = internal/network
 interface = wlp3s0
 interval = 5
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid% 
+label-connected = %essid%
+label-maxlen = 10
+;click-left = kitty -e fish -c nmtui &
 
 ramp-signal-0 = 直
 ramp-signal-foreground = ${colors.foreground-alt}

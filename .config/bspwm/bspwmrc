@@ -25,7 +25,7 @@ bspc rule -a spotify state=floating
 # Autostart
 fish -c nextcld &
 sh $HOME/.config/polybar/launch.sh &
-wal --backend wal -i ~/wallpapers/wallpaper16.png &
+wal --backend wal -i ~/wallpapers/wallpaper18.jpg &
 [[ ! $(pidof -x picom) ]] && picom --config $HOME/.config/picom.conf &
 pidof bspswallow || bspswallow &
 synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1 CircularScrolling=0 SingleTapTimeout=210 PalmDetect=1 PalmMinz=150 PalmMinWidth=5 &
@@ -33,3 +33,5 @@ xbindkeys &
 $HOME/.custom_scripts/cleanfullscreen &
 #clipmenud
 wmname LG3D &
+# check if a mouse is connected and if yes, disable touchpad
+lsusb | grep -i mouse && synclient TouchpadOff=1

@@ -42,3 +42,4 @@ export PATH="$HOME/.local/android-studio/bin/:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias nextcld='/home/azamath/Downloads/Nextcloud-2.6.5-x86_64.AppImage'
+alias ncl='/home/azamath/.local/share/ncl-linux-x64/ncl'
