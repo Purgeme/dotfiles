@@ -172,7 +172,7 @@ bar-empty-foreground = ${colors.foreground-alt2}
 [module/volume]
 type = internal/pulseaudio
 
-format-volume =  <label-volume> <bar-volume>
+format-volume =  <label-volume> 
 format-muted =  Muted
 label-volume = "%{A1: kitty -e fish -c pulsemixer &:} %percentage%%{A}"
 label-volume-foreground = ${colors.foreground-alt}

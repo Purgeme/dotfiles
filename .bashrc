@@ -143,3 +143,8 @@ ex ()
 alias config='/usr/bin/git --git-dir=/home/azamath/dotfiles/ --work-tree=/home/azamath'
 
 cat ~/.cache/wal/sequences
+
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
+
+alias tmux='tmux -u'
