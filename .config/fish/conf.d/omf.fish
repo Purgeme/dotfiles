@@ -16,7 +16,7 @@ source $OMF_PATH/init.fish
 figlet -f /usr/share/figlet/pagga.tlf Amitabha | lolcat
 
 # persist the changes of pywal on opening new terminals
-cat ~/.cache/wal/sequences
+# cat ~/.cache/wal/sequences
 
 # vim like key bindings in the terminal
 fish_vi_key_bindings
