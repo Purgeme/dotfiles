@@ -1,23 +1,30 @@
 set nocompatible
 
 call plug#begin('~/local/share/nvim/plugged')
-"Hello World!"
+
 Plug 'tpope/vim-surround'
 Plug 'frazrepo/vim-rainbow'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tpope/vim-eunuch'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'blueyed/vim-diminactive'
+Plug 'mhinz/vim-startify'
 
 " Godot Support
 " Plug 'habamax/vim-godot'
 Plug 'calviken/vim-gdscript3'
 
 " Nerd tree with git support
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " C/C++ Support
 Plug 'WolfgangMehner/c-support'
@@ -52,7 +59,6 @@ syntax enable
 set relativenumber
 set number
 set updatetime=100
-
 
 
 " open terminal in vim
