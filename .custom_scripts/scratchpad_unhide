@@ -1,0 +1,6 @@
+#! /bin/bash
+
+bspc node {,$(bspc query -N -n .hidden |tail -n 1)} -g hidden=off -d $(bspc query -D -d focused --names) -t floating -f
+
+# original post https://www.reddit.com/r/bspwm/comments/hojore/scratchpad_with_2_sxhkd_shortcuts/
+# BTW currently it works like a stack, the last hidden window becomes visible first, you can remove tail and it becomes a queue. ( from the original post )

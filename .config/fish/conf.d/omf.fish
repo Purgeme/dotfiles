@@ -44,5 +44,5 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias nextcld='/home/azamath/Downloads/Nextcloud-2.6.5-x86_64.AppImage'
 alias ncl='/home/azamath/.local/share/ncl-linux-x64/ncl'
 alias tmux='tmux -u'
-# to fix the issue of startify not starting
-alias nvim='nvim +:Startify'
+# to fix the issue of startify not starting (does not work)
+# alias nvim='nvim +:Startify'
