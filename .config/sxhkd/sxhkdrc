@@ -84,7 +84,8 @@ XF86AudioMicMute
 
 # Play/Pause Music
 XF86AudioPlay
-	playerctl play-pause
+	bash ~/.custom_scripts/playerctl_selection.sh
+#	playerctl play-pause
 
 # Change music
 {XF86AudioNext, XF86AudioPrev}

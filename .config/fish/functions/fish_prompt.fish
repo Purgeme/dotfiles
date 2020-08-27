@@ -1,1 +1,1 @@
-/home/azamath/.local/share/omf/themes/batman/fish_prompt.fish
+/home/azamath/.local/share/omf/themes/agnoster/fish_prompt.fish

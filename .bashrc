@@ -3,7 +3,7 @@
 #
 
 # use fish as interactive shell
-exec fish
+#exec fish
 
 [[ $- != *i* ]] && return
 
