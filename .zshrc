@@ -55,3 +55,6 @@ export PATH="$HOME/flutter/bin/:$PATH"
 # fix blank windows for android studio
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$HOME/.local/android-studio/bin/:$PATH"
+
+# zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
