@@ -25,10 +25,10 @@ bspc rule -a Spotify state=floating
 bspc rule -a spotify state=floating
 
 # Autostart
-# fish -c nextcld &
+fish -c nextcld &
 sh $HOME/.config/polybar/launch.sh &
-wal --backend wal -i ~/wallpapers/wallpaper22.jpg &
-[[ ! $(pidof -x picom) ]] && picom --config $HOME/.config/picom.conf &
+wal --backend colorz -i ~/wallpapers/wallpaper23.png &
+[[ ! $(pidof -x picom) ]] && picom --experimental-backends &
 pidof bspswallow || bspswallow &
 synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1 CircularScrolling=0 SingleTapTimeout=210 PalmDetect=1 PalmMinz=150 PalmMinWidth=5 &
 xbindkeys &

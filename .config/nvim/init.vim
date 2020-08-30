@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'blueyed/vim-diminactive'
 Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
 
 " Godot Support
 " Plug 'habamax/vim-godot'
