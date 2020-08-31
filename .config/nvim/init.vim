@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'blueyed/vim-diminactive'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
+Plug 'mbbill/undotree'
 
 " Godot Support
 " Plug 'habamax/vim-godot'
@@ -75,6 +76,13 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
+
+" set save undo history
+
+if has("persistent_undo")
+	set undodir=$HOME/.undodir
+	set undofile
+endif
 
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
