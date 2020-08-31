@@ -89,7 +89,8 @@ XF86AudioPlay
 
 # Change music
 {XF86AudioNext, XF86AudioPrev}
-	playerctl {next,previous}
+	bash {~/.custom_scripts/playerctl_selection_next.sh, ~/.custom_scripts/playerctl_selection_previous.sh}
+#	playerctl {next,previous}
 
 #####################
 #Base window manager#
