@@ -1,10 +1,9 @@
-local awful = require("awful")
-local gears = require("gears")
-local hotkeys_popup = require("awful.hotkeys_popup")
-local helpers = require("helpers")
-local popup = require("notifs.notif-center.notif_popup")
+local awful = require('awful')
+local beautiful = require('beautiful')
+local gears = require('gears')
+local hotkeys_popup = require('awful.hotkeys_popup').widget
 
-
+modkey = "Mod4"
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
