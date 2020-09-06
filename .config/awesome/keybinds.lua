@@ -2,6 +2,7 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local gears = require('gears')
 local hotkeys_popup = require('awful.hotkeys_popup').widget
+local spotify_shell = require("widget.spotify-shell.spotify-shell")
 
 modkey = "Mod4"
 
@@ -88,10 +89,12 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
-
+	awful.key({ modkey, }, "d", function () spotify_shell.launch() end, {description = "spotify shell", group = "music"}),
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
+--    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+--              {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -104,8 +107,11 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show drun") end,
-              {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey }, "p", function() awful.spawn.with_shell("rofi -show drun -show-icons") end,
+              {description = "show the menubar", group = "launcher"}),
+	-- Rofimoji
+    awful.key({ modkey }, "e", function() awful.spawn.with_shell("rofimoji") end,
+              {description = "rofimoji emoji menu", group = "launcher"})
 --    awful.key({ modkey }, "p", function() menubar.show() end,
 --              {description = "show the menubar", group = "launcher"})
 )

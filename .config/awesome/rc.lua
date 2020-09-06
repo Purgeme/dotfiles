@@ -4,6 +4,16 @@ require("keybinds")
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+-- WIDGETS
+local spotify_widget = require("widget.spotify-widget.spotify")
+local batteryarc_widget = require("widget.batteryarc-widget.batteryarc")
+local brightnessarc_widget = require("widget.brightnessarc-widget.brightnessarc")
+local cpu_widget = require("widget.cpu-widget.cpu-widget")
+local volumearc_widget = require("widget.volumearc-widget.volumearc")
+local spotify_shell = require("widget.spotify-shell.spotify-shell")
+
+
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -202,7 +212,11 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ 
+		position = "top",
+		screen = s,
+		height = 23,
+	})
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -212,10 +226,29 @@ awful.screen.connect_for_each_screen(function(s)
             -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
+			bg = beautiful.bg_normal,
+			fg = beautiful.fg_normal,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+			spotify_widget({
+				play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+				pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
+			}),
+			batteryarc_widget({
+				size = 30,
+				arc_thickness = 4,
+				display_notification = true,
+				show_current_level = true,
+			}),
+			volumearc_widget(),
+			brightnessarc_widget({
+				get_brightness_cmd = 'xbacklight -get',
+    	        inc_brightness_cmd = 'xbacklight -inc 5',
+	            dec_brightness_cmd = 'xbacklight -dec 5'
+			}),
+			cpu_widget(),
             -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -357,4 +390,4 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("~/.config/awesome/autostart.sh")
