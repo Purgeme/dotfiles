@@ -13,7 +13,6 @@ local volumearc_widget = require("widget.volumearc-widget.volumearc")
 local spotify_shell = require("widget.spotify-shell.spotify-shell")
 
 
-
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -124,6 +123,18 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+volumearc_margin_widget = wibox.container.margin(volumearc_widget(), 2, 2, 2, 2)
+brightnessarc_margin_widget = wibox.container.margin(brightnessarc_widget({
+				get_brightness_cmd = 'xbacklight -get',
+    	        inc_brightness_cmd = 'xbacklight -inc 5',
+	            dec_brightness_cmd = 'xbacklight -dec 5'
+}), 2, 2, 2, 2)
+systray_margined = wibox.container.margin(wibox.widget.systray(), 2, 2, 2, 2)
+spotify_margin_widget = wibox.container.margin(spotify_widget({
+				play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+				pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
+}), 4, 4, 4, 4)
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -232,25 +243,17 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-			spotify_widget({
-				play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
-				pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg',
-			}),
+			spotify_margin_widget,
 			batteryarc_widget({
-				size = 30,
-				arc_thickness = 4,
+				arc_thickness = 3,
 				display_notification = true,
-				show_current_level = true,
+				--show_current_level = true,
 			}),
-			volumearc_widget(),
-			brightnessarc_widget({
-				get_brightness_cmd = 'xbacklight -get',
-    	        inc_brightness_cmd = 'xbacklight -inc 5',
-	            dec_brightness_cmd = 'xbacklight -dec 5'
-			}),
+			volumearc_margin_widget,
+			brightnessarc_margin_widget,
 			cpu_widget(),
             -- mykeyboardlayout,
-            wibox.widget.systray(),
+			systray_margined,
             mytextclock,
             s.mylayoutbox,
         },
