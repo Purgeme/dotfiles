@@ -11,7 +11,7 @@ local brightnessarc_widget = require("widget.brightnessarc-widget.brightnessarc"
 local cpu_widget = require("widget.cpu-widget.cpu-widget")
 local volumearc_widget = require("widget.volumearc-widget.volumearc")
 local spotify_shell = require("widget.spotify-shell.spotify-shell")
-
+local wifi_widget = require("widget.wifi.init")
 
 -- Standard awesome library
 local gears = require("gears")
@@ -226,7 +226,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ 
 		position = "top",
 		screen = s,
-		height = 23,
+		height = 20,
 	})
 
     -- Add widgets to the wibox
@@ -251,6 +251,7 @@ awful.screen.connect_for_each_screen(function(s)
 			}),
 			volumearc_margin_widget,
 			brightnessarc_margin_widget,
+			wifi_widget,
 			cpu_widget(),
             -- mykeyboardlayout,
 			systray_margined,
