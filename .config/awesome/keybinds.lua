@@ -89,10 +89,19 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
+
 	awful.key({ modkey, }, "d", function () spotify_shell.launch() end, {description = "spotify shell", group = "music"}),
+	awful.key({ }, "XF86AudioPlay", function () awful.spawn.with_shell("bash ~/.custom_scripts/playerctl_selection.sh") end, {description = "Pause/Play", group = "music"}),
+	awful.key({ }, "XF86AudioNext", function () awful.spawn.with_shell("bash ~/.custom_scripts/playerctl_selection_next.sh") end, {description = "Playe next", group = "music"}),
+	awful.key({ }, "XF86AudioPrevious", function () awful.spawn.with_shell("bash ~/.custom_scripts/playerctl_selection_previous.sh") end, {description = "Play previous", group = "music"}),
+	awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%") end, {description = "Increase volume", group = "music"}),
+	awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%") end, {description = "Decrease volume", group = "music"}),
+	awful.key({ }, "XF86AudioMute", function () awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, {description = "Mute volume", group = "music"}),
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey },            "-",     function () awful.spawn.with_shell("tdrop -am -h 480 kitty") end,
+              {description = "dropdown kitty", group = "launcher"}),
 --    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
 --              {description = "run prompt", group = "launcher"}),
 
@@ -133,10 +142,12 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
+    awful.key({ modkey, "Control" }, "t",      function (c) c.sticky = not c.sticky            end,
+              {description = "toggle sticky", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
+            -- minimized, since minimized clients can nott have the focus.
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
