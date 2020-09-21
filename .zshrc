@@ -13,9 +13,7 @@ fi
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# zsh-autosuggestions
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zsh-syntax-highlighting
@@ -23,7 +21,6 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-vim-mode
 source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
-
 # History
 export SAVEHIST=1000000000
 export HISTFILESIZE=1000000000
@@ -52,6 +49,9 @@ export EDITOR=nvim;
 # Add flutter to path
 export PATH="$HOME/flutter/bin/:$PATH"
 
+# Add doom emacs to path
+export PATH="$HOME/.emacs.d/bin/:$PATH"
+
 # fix blank windows for android studio
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$HOME/.local/android-studio/bin/:$PATH"
@@ -63,3 +63,8 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GLX_VENDOR_LIBRARY_NAME="nvidia"
 #export __VK_LAYER_NV_optimus="NVIDIA_only"
+#
+#Japanese Input
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

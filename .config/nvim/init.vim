@@ -38,8 +38,10 @@ Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 
+set cul
+
 " Shortcut for NerdTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :Ranger<CR>
 
 filetype plugin on
 

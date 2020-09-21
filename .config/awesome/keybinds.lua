@@ -97,11 +97,16 @@ globalkeys = gears.table.join(
 	awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +5%") end, {description = "Increase volume", group = "music"}),
 	awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -5%") end, {description = "Decrease volume", group = "music"}),
 	awful.key({ }, "XF86AudioMute", function () awful.spawn.with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, {description = "Mute volume", group = "music"}),
+	awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.with_shell("xbacklight -inc 5%") end, {description = "Mute volume", group = "music"}),
+	awful.key({ }, "XF86MonBrightnessDown", function () awful.spawn.with_shell("xbacklight -dec 5%") end, {description = "Mute volume", group = "music"}),
+	awful.key({ }, "Insert", function () awful.spawn.with_shell("pactl set-source-output-mute 2 0") end, function () awful.spawn.with_shell("pactl set-source-output-mute 2 1") end, {description = "Mute volume", group = "music"}),
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey },            "-",     function () awful.spawn.with_shell("tdrop -am -h 480 kitty") end,
               {description = "dropdown kitty", group = "launcher"}),
+    awful.key({ modkey , "Control" },            "-",     function () awful.spawn.with_shell("tdrop -am -h 480 cool-retro-term") end,
+              {description = "dropdown cool terminal", group = "launcher"}),
 --    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
 --              {description = "run prompt", group = "launcher"}),
 

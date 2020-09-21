@@ -71,6 +71,8 @@ settings:
     global: no-unknown-3rdparty
   content.geolocation:
     global: ask
+  content.headers.accept_language:
+    global: en-US,en;q=0.9
   content.headers.do_not_track:
     global: true
   content.headers.user_agent:
@@ -99,7 +101,7 @@ settings:
   downloads.remove_finished:
     global: -1
   fonts.default_family:
-    global: JetBrainsMonoMedium Nerd Font
+    global: 'JetBrainsMonoMedium Nerd Font, '
   hints.find_implementation:
     global: javascript
   scrolling.smooth:

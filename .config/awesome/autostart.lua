@@ -9,6 +9,7 @@ autorunShellCmds =
      "synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1 CircularScrolling=0 SingleTapTimeout=210 PalmDetect=1 PalmMinz=150 PalmMinWidth=5",
      "lsusb | grep -i mouse && synclient TouchpadOff=1",
 	 "feh --bg-scale ~/wallpapers/wallpaper23.png"
+	 "ibus-daemon -drx"
 
 }
 

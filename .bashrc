@@ -179,3 +179,8 @@ function unrealtest {
        $UE_HOME/Engine/Binaries/Linux/UE4Editor $DIR/$1 -Game -ExecCmds="Automation RunTests $2" -log
 }
 complete -f -X '!*.@(uproject)' unrealtest
+
+# Japanese Input
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
