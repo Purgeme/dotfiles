@@ -51,3 +51,7 @@
 
 (package! evil-tutor)
 (package! irony)
+
+(package! gdscript-mode
+          :recipe (:host github
+                   :repo "GDQuest/emacs-gdscript-mode"))

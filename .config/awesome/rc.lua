@@ -56,7 +56,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/greeny/theme.lua")
 beautiful.useless_gap = 3
 
 

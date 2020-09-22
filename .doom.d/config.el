@@ -56,3 +56,4 @@
 
 (setq doom--line-number-style 'relative)
 
+(require 'gdscript-mode)
