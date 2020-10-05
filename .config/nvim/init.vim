@@ -64,6 +64,8 @@ set relativenumber
 set number
 set updatetime=100
 
+"bind <F8> to compile and run cpp programs
+autocmd vimEnter *.cpp map <F8> :w <CR> :!g++ --std=c++17 % -o %:r <CR> :!%:r <CR>
 
 " open terminal in vim
 map <Leader>tt :vnew term://bash<CR>
