@@ -36,6 +36,13 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias tmux='tmux -u'
 alias ncl='/home/azamath/.local/share/ncl-linux-x64/ncl'
 alias nextcld='/home/azamath/Downloads/Nextcloud-2.6.5-x86_64.AppImage'
+#fix obvious typo's 
+alias cd..='cd ..' 
+alias pdw="pwd" 
+alias udpate='sudo pacman -Syyu' 
+alias upate='sudo pacman -Syyu' 
+#Easy search
+alias ff="sudo find /* > /dev/null | grep $1"
 
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
